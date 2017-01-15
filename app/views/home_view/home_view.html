@@ -1,0 +1,14 @@
+<h1>Tumblr API</h1>
+<p>Type in nickname of Tumblr blogger and desired number of posts to view</p>
+<input type="text" ng-model="username" placeholder="Nickname">
+<input type="number" ng-model="postsNumber" placeholder="Number of posts (max 50)">
+<button ng-click="getPosts()">View posts</button>
+<hr>
+<p ng-show="noPosts">There is no posts from this blogger</p>
+<p ng-show="requestError">Request error</p>
+<div class="posts-list" ng-show="posts.length">
+    <h6>Click post to view details</h6>
+    <div ng-repeat="post in posts">
+        <a target="_blank" ng-href="{{post['url-with-slug']}}"><h4>{{post.date}} {{post.slug | slugFilter}}</h4></a>
+    </div>
+</div>

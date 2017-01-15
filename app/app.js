@@ -1,12 +1,9 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'homeView'
-]).
+angular.module('tumblrAPI', ['ngRoute']).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/home'});
+    $routeProvider.when('/home', {
+      templateUrl: 'views/home_view/home_view.html',
+      controller: 'homeCtrl'
+    }).otherwise({redirectTo: '/home'});
 }]);
